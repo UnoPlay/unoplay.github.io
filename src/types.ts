@@ -11,6 +11,11 @@ export interface Player {
   isBot?: boolean
   isHost?: boolean
   score?: number
+  isReady?: boolean
+  avatar?: string
+  status?: 'online' | 'offline' | 'away'
+  lastAction?: string
+  joinedAt?: number
 }
 
 export interface GameState {
@@ -22,6 +27,9 @@ export interface GameState {
   lastAction?: string
   winner?: string
   roundNumber?: number
+  phase: 'lobby' | 'starting' | 'playing' | 'finished'
+  countdown?: number
+  scores: Record<string, number>
 }
 
 export const COLORS = ['red', 'blue', 'green', 'yellow'] as const
@@ -43,4 +51,10 @@ export const BOT_NAMES = [
   'ВАЛЛ-И',
   'HAL 9000',
   'GLaDOS',
-] as const 
+] as const
+
+export const PLAYER_STATUSES = {
+  online: { color: 'green', text: 'В сети' },
+  offline: { color: 'gray', text: 'Не в сети' },
+  away: { color: 'yellow', text: 'Отошёл' },
+} as const 

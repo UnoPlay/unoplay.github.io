@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: uno-game-client
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./build
+    envVars:
+      - key: REACT_APP_SERVER_URL
+        value: https://uno-game-server.onrender.com
+
+  - type: web
+    name: uno-game-server
+    env: node
+    buildCommand: cd server && npm install && npm run build
+    startCommand: cd server && npm start
+    envVars:
+      - key: PORT
+        value: 3001
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_URL
+        value: https://uno-game.onrender.com 

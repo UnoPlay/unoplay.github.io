@@ -1,12 +1,11 @@
-import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ChakraProvider } from '@chakra-ui/react'
 import Home from './pages/Home'
 import Game from './pages/Game'
 
-function App() {
+const App = () => {
   return (
     <ChakraProvider>
-      <CSSReset />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

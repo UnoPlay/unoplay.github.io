@@ -1,4 +1,5 @@
-import { Box, Text, keyframes } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
+import { keyframes } from '@emotion/react'
 import { Card as CardType } from '../types'
 
 interface CardProps {
