@@ -3,10 +3,10 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Home from './pages/Home'
 import Game from './pages/Game'
 
-const App = () => {
+function App() {
   return (
     <ChakraProvider>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/game/:roomId" element={<Game />} />
